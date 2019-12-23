@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState,  Fragment } from 'react';
 import styles from './pagination.module.scss';
 
 export default function Pagination({
@@ -7,14 +7,9 @@ export default function Pagination({
   initialPage = 1,
   pageSize = 10
 }) {
-  const [paginator, setPaginator] = useState({});
-
-  useEffect(() => {
-    if (items && items.length) {
-      debugger;
-      setPaginator(getPaginator(items, initialPage, pageSize));
-    }
-  }, []);
+  const [paginator, setPaginator] = useState(
+    getPaginator(items, initialPage, pageSize)
+  );
 
   function setPage(page) {
     if (page > 0 && page <= paginator.totalPages) {
@@ -59,6 +54,11 @@ export default function Pagination({
 }
 
 function getPaginator(items, currentPage, pageSize) {
+ 
+  if (items.length === 0) {
+         return {}
+  }
+      
   currentPage = currentPage || 1;
   const totalPages = Math.ceil(items.length / pageSize);
 
