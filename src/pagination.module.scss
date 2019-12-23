@@ -1,0 +1,28 @@
+.pagination {
+     
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    li {
+        list-style-type: none;
+        margin: 10px;
+        cursor: pointer; 
+        padding: 2px 5px; 
+
+    }
+   
+}
+
+.active {
+    background-color:  darkblue; 
+    color: white;
+    border-radius: 2px; 
+}
+
+.disabled {
+    color: #ccc;
+    cursor:  default; 
+}
+
+ 
